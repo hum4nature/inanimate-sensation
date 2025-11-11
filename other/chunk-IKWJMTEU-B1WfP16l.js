@@ -1,0 +1,2341 @@
+import {a as $e, j as e, r as d} from "./jsx-runtime-BmCkTyBI.js";
+import {n as R, r as zt, t as Q, s as Ge, z as M, B as Ye, S as _, v as k, bN as Kt, D as oe, E as pe, bO as qt, bP as Ht, bQ as Ke, bR as Pe, b3 as re, j as Wt, H as ie, m as E, a$ as Xe, bE as Qt, i as Je, p as G, bS as Gt, J as Yt, bT as q, C as Ze, g as et, bU as Xt, an as tt, ao as at, ap as nt, aq as st, a5 as ae, aj as Jt, f as ne, L as Re, e as ke, _ as qe, bV as Zt, bW as ea, G as ot, a2 as Ee, aV as ta, y as rt, bX as aa, aT as it, aQ as lt, P as na, b as sa, aa as ct, bY as oa} from "./useUiStateStore-BTW2eq2x.js";
+import {s as ra, q as ce} from "./index-0f3ee958-DZWNGZaJ.js";
+import {a as ia} from "./index-B7uSRlxY.js";
+import {b as dt, c as la, i as ca, p as da, m as I, s as ua, f as ut, a as ve, v as ma, y as J, t as fa, T as ha, k as pa, x as va, g as xa, N as ga, w as Na, h as ja, j as wa} from "./input-CP8d1LBk.js";
+import {b as ba, u as ya} from "./index-DQDlNFz_.js";
+import {K as xe, n as Sa, b as Ca, S as $a, c as Pa, y as Ra} from "./index-bpJNUpaV.js";
+import {z as H, P as Z, Q as de, H as ue, u as mt, b as ft, a as ht, M as D, C as F, g as O, v as B, N as ee, w as A} from "./schemas-BlmeThha.js";
+import {r as ka, a as me, M as Ea, m as Ta} from "./useInitSettings-DTwUvEoS.js";
+import {s as Ma} from "./plus-DBL14xDl.js";
+import {c as La} from "./pencil-jRDbvWXy.js";
+import {j as Va, D as _a, h as Ia, w as Da, F as Fa} from "./dialog-BgY3zGCx.js";
+import {h as Oa} from "./scroll-area-r19cRpaW.js";
+import {i as Aa} from "./useMainIgn-C4RS_MXP.js";
+import {u as Ua} from "./index-DaXM-EJC.js";
+const Ba = "_header_1koxt_1"
+  , za = "_headerText_1koxt_5"
+  , Ka = "_headerActive_1koxt_27"
+  , qa = "_headerInactive_1koxt_35"
+  , X = {
+    header: Ba,
+    headerText: za,
+    headerActive: Ka,
+    headerInactive: qa
+}
+  , le = $e.forwardRef( ({className: t, children: a, selected: n, disabled: s, ...r}, o) => e.jsx("div", {
+    className: R(t, X.header, n ? X.headerActive : X.headerInactive),
+    "data-disabled": s,
+    ref: o,
+    ...r,
+    children: e.jsx("span", {
+        className: R(X.headerText),
+        children: a
+    })
+}));
+le.displayName = "Tab";
+var U = "NavigationMenu"
+  , [Te,pt,Ha] = dt(U)
+  , [ge,Wa,Qa] = dt(U)
+  , [Me,as] = zt(U, [Ha, Qa])
+  , [Ga,T] = Me(U)
+  , [Ya,Xa] = Me(U)
+  , vt = d.forwardRef( (t, a) => {
+    const {__scopeNavigationMenu: n, value: s, onValueChange: r, defaultValue: o, delayDuration: l=200, skipDelayDuration: c=300, orientation: h="horizontal", dir: f, ...m} = t
+      , [N,S] = d.useState(null)
+      , g = Q(a, $ => S($))
+      , w = la(f)
+      , p = d.useRef(0)
+      , y = d.useRef(0)
+      , P = d.useRef(0)
+      , [C,j] = d.useState(!0)
+      , [x,i] = Ge({
+        prop: s,
+        onChange: $ => {
+            const L = $ !== ""
+              , V = c > 0;
+            L ? (window.clearTimeout(P.current),
+            V && j(!1)) : (window.clearTimeout(P.current),
+            P.current = window.setTimeout( () => j(!0), c)),
+            r == null || r($)
+        }
+        ,
+        defaultProp: o ?? "",
+        caller: U
+    })
+      , v = d.useCallback( () => {
+        window.clearTimeout(y.current),
+        y.current = window.setTimeout( () => i(""), 150)
+    }
+    , [i])
+      , u = d.useCallback($ => {
+        window.clearTimeout(y.current),
+        i($)
+    }
+    , [i])
+      , b = d.useCallback($ => {
+        x === $ ? window.clearTimeout(y.current) : p.current = window.setTimeout( () => {
+            window.clearTimeout(y.current),
+            i($)
+        }
+        , l)
+    }
+    , [x, i, l]);
+    return d.useEffect( () => () => {
+        window.clearTimeout(p.current),
+        window.clearTimeout(y.current),
+        window.clearTimeout(P.current)
+    }
+    , []),
+    e.jsx(xt, {
+        scope: n,
+        isRootMenu: !0,
+        value: x,
+        dir: w,
+        orientation: h,
+        rootNavigationMenu: N,
+        onTriggerEnter: $ => {
+            window.clearTimeout(p.current),
+            C ? b($) : u($)
+        }
+        ,
+        onTriggerLeave: () => {
+            window.clearTimeout(p.current),
+            v()
+        }
+        ,
+        onContentEnter: () => window.clearTimeout(y.current),
+        onContentLeave: v,
+        onItemSelect: $ => {
+            i(L => L === $ ? "" : $)
+        }
+        ,
+        onItemDismiss: () => i(""),
+        children: e.jsx(M.nav, {
+            "aria-label": "Main",
+            "data-orientation": h,
+            dir: w,
+            ...m,
+            ref: g
+        })
+    })
+}
+);
+vt.displayName = U;
+var Ne = "NavigationMenuSub"
+  , Ja = d.forwardRef( (t, a) => {
+    const {__scopeNavigationMenu: n, value: s, onValueChange: r, defaultValue: o, orientation: l="horizontal", ...c} = t
+      , h = T(Ne, n)
+      , [f,m] = Ge({
+        prop: s,
+        onChange: r,
+        defaultProp: o ?? "",
+        caller: Ne
+    });
+    return e.jsx(xt, {
+        scope: n,
+        isRootMenu: !1,
+        value: f,
+        dir: h.dir,
+        orientation: l,
+        rootNavigationMenu: h.rootNavigationMenu,
+        onTriggerEnter: N => m(N),
+        onItemSelect: N => m(N),
+        onItemDismiss: () => m(""),
+        children: e.jsx(M.div, {
+            "data-orientation": l,
+            ...c,
+            ref: a
+        })
+    })
+}
+);
+Ja.displayName = Ne;
+var xt = t => {
+    const {scope: a, isRootMenu: n, rootNavigationMenu: s, dir: r, orientation: o, children: l, value: c, onItemSelect: h, onItemDismiss: f, onTriggerEnter: m, onTriggerLeave: N, onContentEnter: S, onContentLeave: g} = t
+      , [w,p] = d.useState(null)
+      , [y,P] = d.useState(new Map)
+      , [C,j] = d.useState(null);
+    return e.jsx(Ga, {
+        scope: a,
+        isRootMenu: n,
+        rootNavigationMenu: s,
+        value: c,
+        previousValue: ca(c),
+        baseId: Ye(),
+        dir: r,
+        orientation: o,
+        viewport: w,
+        onViewportChange: p,
+        indicatorTrack: C,
+        onIndicatorTrackChange: j,
+        onTriggerEnter: _(m),
+        onTriggerLeave: _(N),
+        onContentEnter: _(S),
+        onContentLeave: _(g),
+        onItemSelect: _(h),
+        onItemDismiss: _(f),
+        onViewportContentChange: d.useCallback( (x, i) => {
+            P(v => (v.set(x, i),
+            new Map(v)))
+        }
+        , []),
+        onViewportContentRemove: d.useCallback(x => {
+            P(i => i.has(x) ? (i.delete(x),
+            new Map(i)) : i)
+        }
+        , []),
+        children: e.jsx(Te.Provider, {
+            scope: a,
+            children: e.jsx(Ya, {
+                scope: a,
+                items: y,
+                children: l
+            })
+        })
+    })
+}
+  , gt = "NavigationMenuList"
+  , Nt = d.forwardRef( (t, a) => {
+    const {__scopeNavigationMenu: n, ...s} = t
+      , r = T(gt, n)
+      , o = e.jsx(M.ul, {
+        "data-orientation": r.orientation,
+        ...s,
+        ref: a
+    });
+    return e.jsx(M.div, {
+        style: {
+            position: "relative"
+        },
+        ref: r.onIndicatorTrackChange,
+        children: e.jsx(Te.Slot, {
+            scope: n,
+            children: r.isRootMenu ? e.jsx(kt, {
+                asChild: !0,
+                children: o
+            }) : o
+        })
+    })
+}
+);
+Nt.displayName = gt;
+var jt = "NavigationMenuItem"
+  , [Za,wt] = Me(jt)
+  , bt = d.forwardRef( (t, a) => {
+    const {__scopeNavigationMenu: n, value: s, ...r} = t
+      , o = Ye()
+      , l = s || o || "LEGACY_REACT_AUTO_VALUE"
+      , c = d.useRef(null)
+      , h = d.useRef(null)
+      , f = d.useRef(null)
+      , m = d.useRef( () => {}
+    )
+      , N = d.useRef(!1)
+      , S = d.useCallback( (w="start") => {
+        if (c.current) {
+            m.current();
+            const p = we(c.current);
+            p.length && _e(w === "start" ? p : p.reverse())
+        }
+    }
+    , [])
+      , g = d.useCallback( () => {
+        if (c.current) {
+            const w = we(c.current);
+            w.length && (m.current = rn(w))
+        }
+    }
+    , []);
+    return e.jsx(Za, {
+        scope: n,
+        value: l,
+        triggerRef: h,
+        contentRef: c,
+        focusProxyRef: f,
+        wasEscapeCloseRef: N,
+        onEntryKeyDown: S,
+        onFocusProxyEnter: S,
+        onRootContentClose: g,
+        onContentFocusOutside: g,
+        children: e.jsx(M.li, {
+            ...r,
+            ref: a
+        })
+    })
+}
+);
+bt.displayName = jt;
+var je = "NavigationMenuTrigger"
+  , yt = d.forwardRef( (t, a) => {
+    const {__scopeNavigationMenu: n, disabled: s, ...r} = t
+      , o = T(je, t.__scopeNavigationMenu)
+      , l = wt(je, t.__scopeNavigationMenu)
+      , c = d.useRef(null)
+      , h = Q(c, l.triggerRef, a)
+      , f = Tt(o.baseId, l.value)
+      , m = Mt(o.baseId, l.value)
+      , N = d.useRef(!1)
+      , S = d.useRef(!1)
+      , g = l.value === o.value;
+    return e.jsxs(e.Fragment, {
+        children: [e.jsx(Te.ItemSlot, {
+            scope: n,
+            value: l.value,
+            children: e.jsx(Et, {
+                asChild: !0,
+                children: e.jsx(M.button, {
+                    id: f,
+                    disabled: s,
+                    "data-disabled": s ? "" : void 0,
+                    "data-state": Ie(g),
+                    "aria-expanded": g,
+                    "aria-controls": m,
+                    ...r,
+                    ref: h,
+                    onPointerEnter: k(t.onPointerEnter, () => {
+                        S.current = !1,
+                        l.wasEscapeCloseRef.current = !1
+                    }
+                    ),
+                    onPointerMove: k(t.onPointerMove, se( () => {
+                        s || S.current || l.wasEscapeCloseRef.current || N.current || (o.onTriggerEnter(l.value),
+                        N.current = !0)
+                    }
+                    )),
+                    onPointerLeave: k(t.onPointerLeave, se( () => {
+                        s || (o.onTriggerLeave(),
+                        N.current = !1)
+                    }
+                    )),
+                    onClick: k(t.onClick, () => {
+                        o.onItemSelect(l.value),
+                        S.current = g
+                    }
+                    ),
+                    onKeyDown: k(t.onKeyDown, w => {
+                        const p = {
+                            horizontal: "ArrowDown",
+                            vertical: o.dir === "rtl" ? "ArrowLeft" : "ArrowRight"
+                        }[o.orientation];
+                        g && w.key === p && (l.onEntryKeyDown(),
+                        w.preventDefault())
+                    }
+                    )
+                })
+            })
+        }), g && e.jsxs(e.Fragment, {
+            children: [e.jsx(Kt, {
+                "aria-hidden": !0,
+                tabIndex: 0,
+                ref: l.focusProxyRef,
+                onFocus: w => {
+                    const p = l.contentRef.current
+                      , y = w.relatedTarget
+                      , P = y === c.current
+                      , C = p == null ? void 0 : p.contains(y);
+                    (P || !C) && l.onFocusProxyEnter(P ? "start" : "end")
+                }
+            }), o.viewport && e.jsx("span", {
+                "aria-owns": m
+            })]
+        })]
+    })
+}
+);
+yt.displayName = je;
+var en = "NavigationMenuLink"
+  , He = "navigationMenu.linkSelect"
+  , St = d.forwardRef( (t, a) => {
+    const {__scopeNavigationMenu: n, active: s, onSelect: r, ...o} = t;
+    return e.jsx(Et, {
+        asChild: !0,
+        children: e.jsx(M.a, {
+            "data-active": s ? "" : void 0,
+            "aria-current": s ? "page" : void 0,
+            ...o,
+            ref: a,
+            onClick: k(t.onClick, l => {
+                const c = l.target
+                  , h = new CustomEvent(He,{
+                    bubbles: !0,
+                    cancelable: !0
+                });
+                if (c.addEventListener(He, f => r == null ? void 0 : r(f), {
+                    once: !0
+                }),
+                Ke(c, h),
+                !h.defaultPrevented && !l.metaKey) {
+                    const f = new CustomEvent(te,{
+                        bubbles: !0,
+                        cancelable: !0
+                    });
+                    Ke(c, f)
+                }
+            }
+            , {
+                checkForDefaultPrevented: !1
+            })
+        })
+    })
+}
+);
+St.displayName = en;
+var Le = "NavigationMenuIndicator"
+  , Ct = d.forwardRef( (t, a) => {
+    const {forceMount: n, ...s} = t
+      , r = T(Le, t.__scopeNavigationMenu)
+      , o = !!r.value;
+    return r.indicatorTrack ? ia.createPortal(e.jsx(oe, {
+        present: n || o,
+        children: e.jsx(tn, {
+            ...s,
+            ref: a
+        })
+    }), r.indicatorTrack) : null
+}
+);
+Ct.displayName = Le;
+var tn = d.forwardRef( (t, a) => {
+    const {__scopeNavigationMenu: n, ...s} = t
+      , r = T(Le, n)
+      , o = pt(n)
+      , [l,c] = d.useState(null)
+      , [h,f] = d.useState(null)
+      , m = r.orientation === "horizontal"
+      , N = !!r.value;
+    d.useEffect( () => {
+        var w;
+        const g = (w = o().find(p => p.value === r.value)) == null ? void 0 : w.ref.current;
+        g && c(g)
+    }
+    , [o, r.value]);
+    const S = () => {
+        l && f({
+            size: m ? l.offsetWidth : l.offsetHeight,
+            offset: m ? l.offsetLeft : l.offsetTop
+        })
+    }
+    ;
+    return be(l, S),
+    be(r.indicatorTrack, S),
+    h ? e.jsx(M.div, {
+        "aria-hidden": !0,
+        "data-state": N ? "visible" : "hidden",
+        "data-orientation": r.orientation,
+        ...s,
+        ref: a,
+        style: {
+            position: "absolute",
+            ...m ? {
+                left: 0,
+                width: h.size + "px",
+                transform: `translateX(${h.offset}px)`
+            } : {
+                top: 0,
+                height: h.size + "px",
+                transform: `translateY(${h.offset}px)`
+            },
+            ...s.style
+        }
+    }) : null
+}
+)
+  , K = "NavigationMenuContent"
+  , $t = d.forwardRef( (t, a) => {
+    const {forceMount: n, ...s} = t
+      , r = T(K, t.__scopeNavigationMenu)
+      , o = wt(K, t.__scopeNavigationMenu)
+      , l = Q(o.contentRef, a)
+      , c = o.value === r.value
+      , h = {
+        value: o.value,
+        triggerRef: o.triggerRef,
+        focusProxyRef: o.focusProxyRef,
+        wasEscapeCloseRef: o.wasEscapeCloseRef,
+        onContentFocusOutside: o.onContentFocusOutside,
+        onRootContentClose: o.onRootContentClose,
+        ...s
+    };
+    return r.viewport ? e.jsx(an, {
+        forceMount: n,
+        ...h,
+        ref: l
+    }) : e.jsx(oe, {
+        present: n || c,
+        children: e.jsx(Pt, {
+            "data-state": Ie(c),
+            ...h,
+            ref: l,
+            onPointerEnter: k(t.onPointerEnter, r.onContentEnter),
+            onPointerLeave: k(t.onPointerLeave, se(r.onContentLeave)),
+            style: {
+                pointerEvents: !c && r.isRootMenu ? "none" : void 0,
+                ...h.style
+            }
+        })
+    })
+}
+);
+$t.displayName = K;
+var an = d.forwardRef( (t, a) => {
+    const n = T(K, t.__scopeNavigationMenu)
+      , {onViewportContentChange: s, onViewportContentRemove: r} = n;
+    return pe( () => {
+        s(t.value, {
+            ref: a,
+            ...t
+        })
+    }
+    , [t, a, s]),
+    pe( () => () => r(t.value), [t.value, r]),
+    null
+}
+)
+  , te = "navigationMenu.rootContentDismiss"
+  , Pt = d.forwardRef( (t, a) => {
+    const {__scopeNavigationMenu: n, value: s, triggerRef: r, focusProxyRef: o, wasEscapeCloseRef: l, onRootContentClose: c, onContentFocusOutside: h, ...f} = t
+      , m = T(K, n)
+      , N = d.useRef(null)
+      , S = Q(N, a)
+      , g = Tt(m.baseId, s)
+      , w = Mt(m.baseId, s)
+      , p = pt(n)
+      , y = d.useRef(null)
+      , {onItemDismiss: P} = m;
+    d.useEffect( () => {
+        const j = N.current;
+        if (m.isRootMenu && j) {
+            const x = () => {
+                var i;
+                P(),
+                c(),
+                j.contains(document.activeElement) && ((i = r.current) == null || i.focus())
+            }
+            ;
+            return j.addEventListener(te, x),
+            () => j.removeEventListener(te, x)
+        }
+    }
+    , [m.isRootMenu, t.value, r, P, c]);
+    const C = d.useMemo( () => {
+        const j = p().map($ => $.value);
+        m.dir === "rtl" && j.reverse();
+        const x = j.indexOf(m.value)
+          , i = j.indexOf(m.previousValue)
+          , v = s === m.value
+          , u = i === j.indexOf(s);
+        if (!v && !u)
+            return y.current;
+        const b = ( () => {
+            if (x !== i) {
+                if (v && i !== -1)
+                    return x > i ? "from-end" : "from-start";
+                if (u && x !== -1)
+                    return x > i ? "to-start" : "to-end"
+            }
+            return null
+        }
+        )();
+        return y.current = b,
+        b
+    }
+    , [m.previousValue, m.value, m.dir, p, s]);
+    return e.jsx(kt, {
+        asChild: !0,
+        children: e.jsx(qt, {
+            id: w,
+            "aria-labelledby": g,
+            "data-motion": C,
+            "data-orientation": m.orientation,
+            ...f,
+            ref: S,
+            disableOutsidePointerEvents: !1,
+            onDismiss: () => {
+                var x;
+                const j = new Event(te,{
+                    bubbles: !0,
+                    cancelable: !0
+                });
+                (x = N.current) == null || x.dispatchEvent(j)
+            }
+            ,
+            onFocusOutside: k(t.onFocusOutside, j => {
+                var i;
+                h();
+                const x = j.target;
+                (i = m.rootNavigationMenu) != null && i.contains(x) && j.preventDefault()
+            }
+            ),
+            onPointerDownOutside: k(t.onPointerDownOutside, j => {
+                var u;
+                const x = j.target
+                  , i = p().some(b => {
+                    var $;
+                    return ($ = b.ref.current) == null ? void 0 : $.contains(x)
+                }
+                )
+                  , v = m.isRootMenu && ((u = m.viewport) == null ? void 0 : u.contains(x));
+                (i || v || !m.isRootMenu) && j.preventDefault()
+            }
+            ),
+            onKeyDown: k(t.onKeyDown, j => {
+                var i;
+                const x = j.altKey || j.ctrlKey || j.metaKey;
+                if (j.key === "Tab" && !x) {
+                    const v = we(j.currentTarget)
+                      , u = document.activeElement
+                      , b = v.findIndex(L => L === u)
+                      , $ = j.shiftKey ? v.slice(0, b).reverse() : v.slice(b + 1, v.length);
+                    _e($) ? j.preventDefault() : (i = o.current) == null || i.focus()
+                }
+            }
+            ),
+            onEscapeKeyDown: k(t.onEscapeKeyDown, j => {
+                l.current = !0
+            }
+            )
+        })
+    })
+}
+)
+  , Ve = "NavigationMenuViewport"
+  , Rt = d.forwardRef( (t, a) => {
+    const {forceMount: n, ...s} = t
+      , r = !!T(Ve, t.__scopeNavigationMenu).value;
+    return e.jsx(oe, {
+        present: n || r,
+        children: e.jsx(nn, {
+            ...s,
+            ref: a
+        })
+    })
+}
+);
+Rt.displayName = Ve;
+var nn = d.forwardRef( (t, a) => {
+    const {__scopeNavigationMenu: n, children: s, ...r} = t
+      , o = T(Ve, n)
+      , l = Q(a, o.onViewportChange)
+      , c = Xa(K, t.__scopeNavigationMenu)
+      , [h,f] = d.useState(null)
+      , [m,N] = d.useState(null)
+      , S = h ? (h == null ? void 0 : h.width) + "px" : void 0
+      , g = h ? (h == null ? void 0 : h.height) + "px" : void 0
+      , w = !!o.value
+      , p = w ? o.value : o.previousValue;
+    return be(m, () => {
+        m && f({
+            width: m.offsetWidth,
+            height: m.offsetHeight
+        })
+    }
+    ),
+    e.jsx(M.div, {
+        "data-state": Ie(w),
+        "data-orientation": o.orientation,
+        ...r,
+        ref: l,
+        style: {
+            pointerEvents: !w && o.isRootMenu ? "none" : void 0,
+            "--radix-navigation-menu-viewport-width": S,
+            "--radix-navigation-menu-viewport-height": g,
+            ...r.style
+        },
+        onPointerEnter: k(t.onPointerEnter, o.onContentEnter),
+        onPointerLeave: k(t.onPointerLeave, se(o.onContentLeave)),
+        children: Array.from(c.items).map( ([y,{ref: P, forceMount: C, ...j}]) => {
+            const x = p === y;
+            return e.jsx(oe, {
+                present: C || x,
+                children: e.jsx(Pt, {
+                    ...j,
+                    ref: Ht(P, i => {
+                        x && i && N(i)
+                    }
+                    )
+                })
+            }, y)
+        }
+        )
+    })
+}
+)
+  , sn = "FocusGroup"
+  , kt = d.forwardRef( (t, a) => {
+    const {__scopeNavigationMenu: n, ...s} = t
+      , r = T(sn, n);
+    return e.jsx(ge.Provider, {
+        scope: n,
+        children: e.jsx(ge.Slot, {
+            scope: n,
+            children: e.jsx(M.div, {
+                dir: r.dir,
+                ...s,
+                ref: a
+            })
+        })
+    })
+}
+)
+  , We = ["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown"]
+  , on = "FocusGroupItem"
+  , Et = d.forwardRef( (t, a) => {
+    const {__scopeNavigationMenu: n, ...s} = t
+      , r = Wa(n)
+      , o = T(on, n);
+    return e.jsx(ge.ItemSlot, {
+        scope: n,
+        children: e.jsx(M.button, {
+            ...s,
+            ref: a,
+            onKeyDown: k(t.onKeyDown, l => {
+                if (["Home", "End", ...We].includes(l.key)) {
+                    let c = r().map(h => h.ref.current);
+                    if ([o.dir === "rtl" ? "ArrowRight" : "ArrowLeft", "ArrowUp", "End"].includes(l.key) && c.reverse(),
+                    We.includes(l.key)) {
+                        const h = c.indexOf(l.currentTarget);
+                        c = c.slice(h + 1)
+                    }
+                    setTimeout( () => _e(c)),
+                    l.preventDefault()
+                }
+            }
+            )
+        })
+    })
+}
+);
+function we(t) {
+    const a = []
+      , n = document.createTreeWalker(t, NodeFilter.SHOW_ELEMENT, {
+        acceptNode: s => {
+            const r = s.tagName === "INPUT" && s.type === "hidden";
+            return s.disabled || s.hidden || r ? NodeFilter.FILTER_SKIP : s.tabIndex >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP
+        }
+    });
+    for (; n.nextNode(); )
+        a.push(n.currentNode);
+    return a
+}
+function _e(t) {
+    const a = document.activeElement;
+    return t.some(n => n === a ? !0 : (n.focus(),
+    document.activeElement !== a))
+}
+function rn(t) {
+    return t.forEach(a => {
+        a.dataset.tabindex = a.getAttribute("tabindex") || "",
+        a.setAttribute("tabindex", "-1")
+    }
+    ),
+    () => {
+        t.forEach(a => {
+            const n = a.dataset.tabindex;
+            a.setAttribute("tabindex", n)
+        }
+        )
+    }
+}
+function be(t, a) {
+    const n = _(a);
+    pe( () => {
+        let s = 0;
+        if (t) {
+            const r = new ResizeObserver( () => {
+                cancelAnimationFrame(s),
+                s = window.requestAnimationFrame(n)
+            }
+            );
+            return r.observe(t),
+            () => {
+                window.cancelAnimationFrame(s),
+                r.unobserve(t)
+            }
+        }
+    }
+    , [t, n])
+}
+function Ie(t) {
+    return t ? "open" : "closed"
+}
+function Tt(t, a) {
+    return `${t}-trigger-${a}`
+}
+function Mt(t, a) {
+    return `${t}-content-${a}`
+}
+function se(t) {
+    return a => a.pointerType === "mouse" ? t(a) : void 0
+}
+var Lt = vt
+  , Vt = Nt
+  , ln = bt
+  , Y = yt
+  , cn = St
+  , _t = Ct
+  , It = $t
+  , Dt = Rt;
+const Ft = d.createContext(void 0)
+  , dn = () => d.useContext(Ft)
+  , Ot = d.forwardRef( ({className: t, children: a, ...n}, s) => {
+    const [r,o] = d.useState(void 0);
+    return d.useEffect( () => {
+        o(window.matchMedia("(pointer: coarse)").matches)
+    }
+    , []),
+    e.jsx(Ft.Provider, {
+        value: r,
+        children: e.jsxs(Lt, {
+            ref: s,
+            className: R("relative z-10 flex max-w-max flex-1 items-center justify-center", t),
+            ...n,
+            children: [a, e.jsx(De, {})]
+        })
+    })
+}
+);
+Ot.displayName = Lt.displayName;
+const At = d.forwardRef( ({className: t, ...a}, n) => e.jsx(Vt, {
+    ref: n,
+    className: R("group flex flex-1 list-none justify-center space-x-3", t),
+    ...a
+}));
+At.displayName = Vt.displayName;
+const fe = ln
+  , un = Wt("group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50")
+  , mn = d.forwardRef( ({className: t, children: a, ...n}, s) => e.jsxs(Y, {
+    ref: s,
+    className: R(un(), "group", t),
+    ...n,
+    children: [a, " ", e.jsx(Pe, {
+        className: "relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180",
+        "aria-hidden": "true"
+    })]
+}));
+mn.displayName = Y.displayName;
+const fn = d.forwardRef( ({className: t, tabClassName: a, selected: n, children: s, ...r}, o) => e.jsx(Y, {
+    asChild: !0,
+    ref: o,
+    className: R("group", t),
+    ...r,
+    children: e.jsxs(le, {
+        className: a,
+        selected: n,
+        children: [s, e.jsx(Pe, {
+            className: "relative ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180",
+            "aria-hidden": "true"
+        })]
+    })
+}));
+fn.displayName = Y.displayName;
+const ye = d.forwardRef( ({className: t, tabClassName: a, selected: n, title: s, href: r, children: o, disabled: l, ...c}, h) => {
+    const f = dn()
+      , m = e.jsxs(le, {
+        className: a,
+        selected: n,
+        disabled: l,
+        children: [o, e.jsx(Pe, {
+            className: R("relative ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180", l ? "opacity-50" : ""),
+            "aria-hidden": "true"
+        })]
+    });
+    return e.jsx(Y, {
+        className: "group",
+        children: e.jsx(W, {
+            asChild: !0,
+            active: n,
+            children: f ? m : e.jsx(re, {
+                ref: h,
+                selected: n,
+                href: l ? "#" : r,
+                className: R("flex", l ? "cursor-not-allowed opacity-50" : "", t),
+                variant: "tabNavbar",
+                onClick: N => {
+                    l && (N.preventDefault(),
+                    N.stopPropagation())
+                }
+                ,
+                "aria-disabled": l,
+                ...c,
+                children: m
+            })
+        })
+    })
+}
+);
+ye.displayName = "NavigationLink";
+const Se = d.forwardRef( ({className: t, ...a}, n) => e.jsx(It, {
+    ref: n,
+    className: R("left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto ", t),
+    ...a
+}));
+Se.displayName = It.displayName;
+const W = cn
+  , De = d.forwardRef( ({className: t, ...a}, n) => e.jsx("div", {
+    className: R("absolute left-0 top-full flex justify-center"),
+    children: e.jsx(Dt, {
+        className: R("origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]", t),
+        ref: n,
+        ...a
+    })
+}));
+De.displayName = Dt.displayName;
+const hn = d.forwardRef( ({className: t, ...a}, n) => e.jsx(_t, {
+    ref: n,
+    className: R("top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in", t),
+    ...a,
+    children: e.jsx("div", {
+        className: "relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md"
+    })
+}));
+hn.displayName = _t.displayName;
+const ns = ({isLibraryMode: t}) => {
+    const {t: a} = ie()
+      , n = ba().pathname
+      , s = E(l => l.poe)
+      , [r] = ra(l => ({
+        loaded: l.viewport.loaded,
+        md: l.viewport.md,
+        lg: l.viewport.lg
+    }))
+      , o = d.useMemo( () => n.includes("/bulk-trade") ? "bulk-trade" : n.includes("/services") ? "services" : "networth", [n]);
+    return e.jsxs("div", {
+        className: R("flex gap-12 w-full", r.loaded && !r.md && "gap-2"),
+        children: [e.jsxs("div", {
+            className: "flex items-center gap-2 shrink-0",
+            children: [e.jsx("img", {
+                src: Xe.assets.animatedPoexchange,
+                alt: "poexchange",
+                width: 42,
+                height: 42,
+                sizes: "33vw",
+                style: {
+                    width: "auto",
+                    height: "42px",
+                    objectFit: "contain",
+                    flexShrink: 0,
+                    borderRadius: "7px"
+                }
+            }), (!r.loaded || r.md) && e.jsx("div", {
+                className: "uppercase font-title font-bold text-2xl text-blue-1",
+                children: a("title.appTitle")
+            })]
+        }), (!r.loaded || r.md) && e.jsx("div", {
+            className: "flex justify-between items-center gap-6 text-sm w-full",
+            children: e.jsxs(Ot, {
+                delayDuration: 250,
+                className: "flex items-center gap-6 text-sm w-full",
+                children: [e.jsx(At, {
+                    className: "space-x-0 lg:space-x-3",
+                    asChild: !0,
+                    children: e.jsxs("div", {
+                        children: [e.jsx(fe, {
+                            asChild: !0,
+                            children: e.jsx(Ut, {
+                                className: R("flex flex-shrink-0", s !== "poe1" ? "cursor-not-allowed opacity-50" : ""),
+                                href: s !== "poe1" ? "#" : `/${s}/poexchange/networth/tracking`,
+                                variant: "tabNavbar",
+                                children: e.jsx(le, {
+                                    className: "w-24",
+                                    selected: o === "networth",
+                                    disabled: s !== "poe1",
+                                    children: a("action.networthPage")
+                                })
+                            })
+                        }), e.jsx(fe, {
+                            asChild: !0,
+                            children: e.jsxs("div", {
+                                className: "flex flex-shrink-0",
+                                children: [e.jsx(ye, {
+                                    href: `/${s}/poexchange/bulk-trade/my-listings`,
+                                    selected: o === "bulk-trade",
+                                    tabClassName: "w-24",
+                                    disabled: s !== "poe1",
+                                    children: a("action.bulkTradePage")
+                                }), e.jsx(Se, {
+                                    children: e.jsxs("ul", {
+                                        className: "grid w-[400px] gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]",
+                                        children: [e.jsx("li", {
+                                            className: "row-span-2",
+                                            children: e.jsx(W, {
+                                                asChild: !0,
+                                                children: e.jsxs("div", {
+                                                    className: "flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md",
+                                                    children: [e.jsx("div", {
+                                                        className: "mb-2 mt-2 text-lg font-medium",
+                                                        children: a("title.bulkTradePage")
+                                                    }), e.jsx("p", {
+                                                        className: "text-sm leading-tight text-muted-foreground",
+                                                        children: a("body.bulkTradePage")
+                                                    })]
+                                                })
+                                            })
+                                        }), e.jsx(z, {
+                                            href: `/${s}/poexchange/bulk-trade/listings`,
+                                            title: a("action.bulkTradeListingsPage"),
+                                            disabled: s !== "poe1",
+                                            children: a("body.bulkTradeListingsPage")
+                                        }), e.jsx(z, {
+                                            href: `/${s}/poexchange/bulk-trade/my-listings`,
+                                            title: a("action.bulkTradeOfferingsPage"),
+                                            disabled: s !== "poe1",
+                                            children: a("body.bulkTradeOfferingsPage")
+                                        }), n.includes("/bulk-trade/trade") && e.jsx(z, {
+                                            href: `/${s}/poexchange/bulk-trade/trade`,
+                                            title: a("action.bulkTradeTradeNotificationPage"),
+                                            disabled: s !== "poe1",
+                                            children: a("body.bulkTradeTradeNotificationPage")
+                                        })]
+                                    })
+                                })]
+                            })
+                        }), e.jsx(fe, {
+                            asChild: !0,
+                            children: e.jsxs("div", {
+                                className: "flex flex-shrink-0",
+                                children: [e.jsx(ye, {
+                                    href: `/${s}/poexchange/services/listings`,
+                                    selected: o === "services",
+                                    tabClassName: "w-24",
+                                    children: a("action.servicePage")
+                                }), e.jsx(Se, {
+                                    children: e.jsxs("ul", {
+                                        className: "grid w-[400px] gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]",
+                                        children: [e.jsx("li", {
+                                            className: "row-span-2",
+                                            children: e.jsx(W, {
+                                                asChild: !0,
+                                                children: e.jsxs("div", {
+                                                    className: "flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md",
+                                                    children: [e.jsx("div", {
+                                                        className: "mb-2 mt-2 text-lg font-medium",
+                                                        children: a("title.servicePage")
+                                                    }), e.jsx("p", {
+                                                        className: "text-sm leading-tight text-muted-foreground",
+                                                        children: a("body.servicePage")
+                                                    })]
+                                                })
+                                            })
+                                        }), e.jsx(z, {
+                                            href: `/${s}/poexchange/services/listings`,
+                                            title: a("action.serviceListingsPage"),
+                                            children: a("body.serviceListingsPage")
+                                        }), e.jsx(z, {
+                                            href: `/${s}/poexchange/services/my-listings`,
+                                            title: a("action.serviceOfferingsPage"),
+                                            children: a("body.serviceOfferingsPage")
+                                        })]
+                                    })
+                                })]
+                            })
+                        })]
+                    })
+                }), e.jsx(De, {})]
+            })
+        })]
+    })
+}
+  , z = $e.forwardRef( ({className: t, title: a, children: n, disabled: s, ...r}, o) => e.jsx("li", {
+    children: e.jsx(W, {
+        asChild: !0,
+        children: e.jsxs(re, {
+            ref: o,
+            className: R("block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors", s ? "cursor-not-allowed opacity-50" : "hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground", t),
+            ...s ? {
+                onClick: l => l.preventDefault(),
+                "aria-disabled": !0
+            } : {},
+            ...r,
+            children: [e.jsx("div", {
+                className: "text-sm font-medium leading-none",
+                children: a
+            }), e.jsx("p", {
+                className: "line-clamp-3 text-sm leading-snug text-muted-foreground",
+                children: n
+            })]
+        })
+    })
+}));
+z.displayName = "ListItem";
+const Ut = $e.forwardRef( ({className: t, selected: a, title: n, href: s, children: r, ...o}, l) => e.jsx(W, {
+    asChild: !0,
+    active: a,
+    children: e.jsx(re, {
+        ref: l,
+        selected: a,
+        href: s,
+        className: R("text-inherit", t),
+        ...o,
+        children: r
+    })
+}));
+Ut.displayName = "Link";
+const pn = d.forwardRef( ({...t}, a) => e.jsx("nav", {
+    ref: a,
+    "aria-label": "breadcrumb",
+    ...t
+}));
+pn.displayName = "Breadcrumb";
+const vn = d.forwardRef( ({className: t, ...a}, n) => e.jsx("ol", {
+    ref: n,
+    className: R("flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5", t),
+    ...a
+}));
+vn.displayName = "BreadcrumbList";
+const xn = d.forwardRef( ({className: t, ...a}, n) => e.jsx("li", {
+    ref: n,
+    className: R("inline-flex items-center gap-1.5", t),
+    ...a
+}));
+xn.displayName = "BreadcrumbItem";
+const gn = d.forwardRef( ({asChild: t, className: a, ...n}, s) => e.jsx(t ? Qt : "a", {
+    ref: s,
+    className: R("transition-colors hover:text-foreground", a),
+    ...n
+}));
+gn.displayName = "BreadcrumbLink";
+const Nn = d.forwardRef( ({className: t, ...a}, n) => e.jsx("span", {
+    ref: n,
+    role: "link",
+    "aria-disabled": "true",
+    "aria-current": "page",
+    className: R("font-normal text-foreground", t),
+    ...a
+}));
+Nn.displayName = "BreadcrumbPage";
+const jn = ({children: t, className: a, ...n}) => e.jsx("li", {
+    role: "presentation",
+    "aria-hidden": "true",
+    className: R("[&>svg]:w-3.5 [&>svg]:h-3.5", a),
+    ...n,
+    children: t ?? e.jsx(da, {})
+});
+jn.displayName = "BreadcrumbSeparator";
+const wn = (t, a) => {
+    const n = d.useCallback(o => {
+        const l = o.toLowerCase();
+        return Je(t).find(c => c === l) || null
+    }
+    , [t])
+      , [s,r] = xe("league", {
+        parse: n,
+        serialize: o => o || "",
+        clearOnDefault: !1
+    });
+    return [s ?? a, r]
+}
+  , bn = t => {
+    const [a,n] = E(G(o => [t === "poe1" ? o.leaguePoe1 : o.leaguePoe2, o.setLeague]))
+      , [s,r] = wn(t, a);
+    return d.useEffect( () => {
+        a !== s && n(t, s)
+    }
+    , [t, s, n, a]),
+    console.log("Syncing UI store league", a, s),
+    [s, r]
+}
+  , yn = () => {
+    const {currentPoe: t} = E(G(r => ({
+        currentPoe: r.poe
+    })))
+      , [a,n] = bn(t)
+      , s = d.useMemo( () => Je(t).map(r => r.toLowerCase().startsWith("hardcore") ? {
+        value: r,
+        label: r.replace("Hardcore ", "").replace("hardcore", "HC")
+    } : {
+        value: r,
+        label: r
+    }), [t]);
+    return e.jsx(I, {
+        className: "uppercase h-[34px]",
+        itemClassName: "uppercase",
+        value: a,
+        onSelect: r => {
+            n(r.value)
+        }
+        ,
+        options: s
+    })
+}
+  , ss = d.memo(yn)
+  , Sn = H({
+    tabNotificationSound: H({
+        value: Z(),
+        isCustom: de()
+    }).optional(),
+    tradeNotificationSound: H({
+        value: Z(),
+        isCustom: de()
+    }).optional(),
+    serviceNotificationSound: H({
+        value: Z(),
+        isCustom: de()
+    }).optional(),
+    tabNotificationSoundVolume: ue().min(0).max(1),
+    tradeNotificationSoundVolume: ue().min(0).max(1),
+    serviceNotificationSoundVolume: ue().min(0).max(1)
+})
+  , Cn = () => {
+    const {t} = ie()
+      , {defaultSounds: a, customSounds: n, addCustomSound: s, removeUnusedCustomSounds: r, tabNotificationSound: o, setTabNotificationSound: l, tradeNotificationSound: c, setTradeNotificationSound: h, serviceNotificationSound: f, setServiceNotificationSound: m} = Gt(G(i => ({
+        defaultSounds: i.defaultSounds,
+        customSounds: i.customSounds,
+        addCustomSound: i.addCustomSound,
+        removeUnusedCustomSounds: i.removeUnusedCustomSounds,
+        tabNotificationSound: i.tabNotificationSound,
+        setTabNotificationSound: i.setTabNotificationSound,
+        tradeNotificationSound: i.tradeNotificationSound,
+        setTradeNotificationSound: i.setTradeNotificationSound,
+        serviceNotificationSound: i.serviceNotificationSound,
+        setServiceNotificationSound: i.setServiceNotificationSound
+    })))
+      , N = d.useMemo( () => {
+        const i = a == null ? void 0 : a.map(u => ({
+            value: u.name,
+            isCustom: !1
+        }))
+          , v = n == null ? void 0 : n.map(u => ({
+            value: u.name,
+            isCustom: !0,
+            icon: e.jsx(ka, {
+                className: "w-4 h-4"
+            })
+        }));
+        return [...i || [], ...v || [], {
+            value: "custom",
+            isCustom: !0,
+            icon: e.jsx(Ma, {
+                className: "w-4 h-4"
+            })
+        }]
+    }
+    , [n, a])
+      , S = d.useMemo( () => [{
+        value: "0",
+        label: "Muted"
+    }, {
+        value: "0.1",
+        label: "10%"
+    }, {
+        value: "0.2",
+        label: "20%"
+    }, {
+        value: "0.3",
+        label: "30%"
+    }, {
+        value: "0.4",
+        label: "40%"
+    }, {
+        value: "0.5",
+        label: "50%"
+    }, {
+        value: "0.6",
+        label: "60%"
+    }, {
+        value: "0.7",
+        label: "70%"
+    }, {
+        value: "0.8",
+        label: "80%"
+    }, {
+        value: "0.9",
+        label: "90%"
+    }, {
+        value: "1.0",
+        label: "100%"
+    }], [])
+      , g = mt({
+        resolver: ft(Sn),
+        reValidateMode: "onChange",
+        mode: "all",
+        defaultValues: {
+            tabNotificationSound: {
+                value: o == null ? void 0 : o.name,
+                isCustom: o == null ? void 0 : o.isCustom
+            },
+            tradeNotificationSound: {
+                value: c == null ? void 0 : c.name,
+                isCustom: c == null ? void 0 : c.isCustom
+            },
+            serviceNotificationSound: {
+                value: f == null ? void 0 : f.name,
+                isCustom: f == null ? void 0 : f.isCustom
+            },
+            tabNotificationSoundVolume: o == null ? void 0 : o.volume,
+            tradeNotificationSoundVolume: c == null ? void 0 : c.volume,
+            serviceNotificationSoundVolume: f == null ? void 0 : f.volume
+        }
+    })
+      , {watch: w, handleSubmit: p} = g
+      , y = d.useCallback(i => {
+        var v, u, b, $, L, V, Fe, Oe, Ae, Ue, Be, ze;
+        (o == null ? void 0 : o.name) === ((v = i.tabNotificationSound) == null ? void 0 : v.value) && (o == null ? void 0 : o.isCustom) === ((u = i.tabNotificationSound) == null ? void 0 : u.isCustom) && (o == null ? void 0 : o.volume) === i.tabNotificationSoundVolume && (c == null ? void 0 : c.name) === ((b = i.tradeNotificationSound) == null ? void 0 : b.value) && (c == null ? void 0 : c.isCustom) === (($ = i.tradeNotificationSound) == null ? void 0 : $.isCustom) && (c == null ? void 0 : c.volume) === i.tradeNotificationSoundVolume && (f == null ? void 0 : f.name) === ((L = i.serviceNotificationSound) == null ? void 0 : L.value) && (f == null ? void 0 : f.isCustom) === ((V = i.serviceNotificationSound) == null ? void 0 : V.isCustom) && (f == null ? void 0 : f.volume) === i.serviceNotificationSoundVolume || (l((Fe = i.tabNotificationSound) == null ? void 0 : Fe.value, (Oe = i.tabNotificationSound) == null ? void 0 : Oe.isCustom, i.tabNotificationSoundVolume),
+        h((Ae = i.tradeNotificationSound) == null ? void 0 : Ae.value, (Ue = i.tradeNotificationSound) == null ? void 0 : Ue.isCustom, i.tradeNotificationSoundVolume),
+        m((Be = i.serviceNotificationSound) == null ? void 0 : Be.value, (ze = i.serviceNotificationSound) == null ? void 0 : ze.isCustom, i.serviceNotificationSoundVolume),
+        r())
+    }
+    , [o == null ? void 0 : o.name, o == null ? void 0 : o.isCustom, o == null ? void 0 : o.volume, c == null ? void 0 : c.name, c == null ? void 0 : c.isCustom, c == null ? void 0 : c.volume, f == null ? void 0 : f.name, f == null ? void 0 : f.isCustom, f == null ? void 0 : f.volume, l, h, m, r]);
+    d.useEffect( () => {
+        const i = w( (v, {name: u}) => {
+            (u != null && u.startsWith("tabNotificationSound") || u != null && u.startsWith("tradeNotificationSound") || u != null && u.startsWith("serviceNotificationSound")) && p(y)()
+        }
+        );
+        return () => i.unsubscribe()
+    }
+    , [w, p, y]);
+    const P = Yt()
+      , C = i => {
+        const v = Array.from(i).at(0);
+        return v ? v.type.indexOf("audio/") !== 0 ? (P(t("label.selectAudioFile"), "error", {
+            app: "poexchange"
+        }),
+        Promise.resolve("")) : new Promise(u => {
+            const b = new FileReader;
+            b.onload = function() {
+                const $ = this.result;
+                u($)
+            }
+            ,
+            b.onerror = function() {
+                u("")
+            }
+            ,
+            b.readAsDataURL(v)
+        }
+        ) : Promise.resolve("")
+    }
+      , j = async i => {
+        const v = document.createElement("input");
+        v.type = "file",
+        v.accept = "audio/*",
+        v.style.display = "none",
+        v.onchange = async u => {
+            var V;
+            const b = u.target;
+            if (!((V = b.files) != null && V.length))
+                return;
+            const $ = b.files[0]
+              , L = await C(b.files);
+            i({
+                name: $.name.replace(/\.[^/.]+$/, ""),
+                encodedBase64Sound: L
+            })
+        }
+        ,
+        document.body.appendChild(v),
+        v.click(),
+        document.body.removeChild(v)
+    }
+      , x = (i, v=1) => {
+        const u = (n == null ? void 0 : n.find(b => b.name === i)) || (a == null ? void 0 : a.find(b => b.name === i));
+        u && ("encodedBase64Sound"in u ? new q.Howl({
+            src: u.encodedBase64Sound,
+            volume: v
+        }).play() : new q.Howl({
+            src: `${Xe.assetUrl}${u.assetName}`,
+            volume: v
+        }).play())
+    }
+    ;
+    return e.jsx(ht, {
+        ...g,
+        children: e.jsxs("form", {
+            onSubmit: p(y),
+            className: "grid grid-cols-3 gap-x-6 gap-y-4",
+            children: [e.jsx(D, {
+                control: g.control,
+                name: "tradeNotificationSound",
+                render: ({field: {name: i, value: v}}) => e.jsxs(F, {
+                    className: "col-span-2",
+                    children: [e.jsxs(O, {
+                        children: [t("label.tradeNotificationSound"), ":"]
+                    }), e.jsxs("div", {
+                        className: "flex gap-2",
+                        children: [e.jsx(B, {
+                            children: e.jsx(I, {
+                                name: i,
+                                className: "uppercase max-w-64 h-[34px]",
+                                popoverClassName: "z-[10000]",
+                                itemClassName: "uppercase",
+                                value: v == null ? void 0 : v.value,
+                                onSelect: u => {
+                                    (u == null ? void 0 : u.value) === "custom" ? j(b => {
+                                        new q.Howl({
+                                            src: b.encodedBase64Sound
+                                        }).play(),
+                                        s(b),
+                                        g.setValue(i, {
+                                            value: b.name,
+                                            isCustom: !0
+                                        }, {
+                                            shouldValidate: !0
+                                        })
+                                    }
+                                    ) : (u != null && u.value && x(u.value, g.getValues().tradeNotificationSoundVolume),
+                                    g.setValue(i, u ?? void 0, {
+                                        shouldValidate: !0
+                                    }))
+                                }
+                                ,
+                                options: N,
+                                modal: !0
+                            })
+                        }), e.jsx(ce, {
+                            buttonStyle: "primary2",
+                            type: "button",
+                            disabled: !v,
+                            onClick: () => {
+                                const u = g.getValues().tradeNotificationSound;
+                                u && x((u == null ? void 0 : u.value) ?? "", g.getValues().tradeNotificationSoundVolume)
+                            }
+                            ,
+                            children: e.jsx(me, {
+                                className: "w-4 h-4"
+                            })
+                        })]
+                    }), e.jsx(ee, {
+                        children: t("body.tradeNotificationSound")
+                    }), e.jsx(A, {})]
+                })
+            }), e.jsx(D, {
+                control: g.control,
+                name: "tradeNotificationSoundVolume",
+                render: ({field: {name: i, value: v}}) => {
+                    var u;
+                    return e.jsxs(F, {
+                        children: [e.jsxs(O, {
+                            children: [t("label.volume"), ":"]
+                        }), e.jsx(B, {
+                            children: e.jsx(I, {
+                                name: i,
+                                className: "uppercase max-w-32 h-[34px]",
+                                popoverClassName: "z-[10000]",
+                                itemClassName: "uppercase",
+                                value: (u = S.find(b => parseFloat(b.value) === v)) == null ? void 0 : u.value,
+                                onSelect: b => g.setValue(i, parseFloat(b.value)),
+                                options: S,
+                                modal: !0
+                            })
+                        }), e.jsx(A, {})]
+                    })
+                }
+            }), e.jsx(D, {
+                control: g.control,
+                name: "tabNotificationSound",
+                render: ({field: {name: i, value: v}}) => e.jsxs(F, {
+                    className: "col-span-2",
+                    children: [e.jsxs(O, {
+                        children: [t("label.tabNotificationSound"), ":"]
+                    }), e.jsxs("div", {
+                        className: "flex gap-2",
+                        children: [e.jsx(B, {
+                            children: e.jsx(I, {
+                                name: i,
+                                className: "uppercase max-w-64 h-[34px]",
+                                popoverClassName: "z-[10000]",
+                                itemClassName: "uppercase",
+                                value: v == null ? void 0 : v.value,
+                                onSelect: u => {
+                                    (u == null ? void 0 : u.value) === "custom" ? j(b => {
+                                        new q.Howl({
+                                            src: b.encodedBase64Sound
+                                        }).play(),
+                                        s(b),
+                                        g.setValue(i, {
+                                            value: b.name,
+                                            isCustom: !0
+                                        }, {
+                                            shouldValidate: !0
+                                        })
+                                    }
+                                    ) : (u != null && u.value && x(u.value, g.getValues().tabNotificationSoundVolume),
+                                    g.setValue(i, u ?? void 0, {
+                                        shouldValidate: !0
+                                    }))
+                                }
+                                ,
+                                options: N,
+                                modal: !0
+                            })
+                        }), e.jsx(ce, {
+                            buttonStyle: "primary2",
+                            type: "button",
+                            disabled: !v,
+                            onClick: () => {
+                                const u = g.getValues().tabNotificationSound;
+                                u && x((u == null ? void 0 : u.value) ?? "", g.getValues().tabNotificationSoundVolume)
+                            }
+                            ,
+                            children: e.jsx(me, {
+                                className: "w-4 h-4"
+                            })
+                        })]
+                    }), e.jsx(ee, {
+                        children: t("body.tabNotificationSound")
+                    }), e.jsx(A, {})]
+                })
+            }), e.jsx(D, {
+                control: g.control,
+                name: "tabNotificationSoundVolume",
+                render: ({field: {name: i, value: v}}) => {
+                    var u;
+                    return e.jsxs(F, {
+                        children: [e.jsxs(O, {
+                            children: [t("label.volume"), ":"]
+                        }), e.jsx(B, {
+                            children: e.jsx(I, {
+                                name: i,
+                                className: "uppercase max-w-32 h-[34px]",
+                                popoverClassName: "z-[10000]",
+                                itemClassName: "uppercase",
+                                value: (u = S.find(b => parseFloat(b.value) === v)) == null ? void 0 : u.value,
+                                onSelect: b => g.setValue(i, parseFloat(b.value)),
+                                options: S,
+                                modal: !0
+                            })
+                        }), e.jsx(A, {})]
+                    })
+                }
+            }), e.jsx(D, {
+                control: g.control,
+                name: "serviceNotificationSound",
+                render: ({field: {name: i, value: v}}) => e.jsxs(F, {
+                    className: "col-span-2",
+                    children: [e.jsxs(O, {
+                        children: [t("label.serviceNotificationSound"), ":"]
+                    }), e.jsxs("div", {
+                        className: "flex gap-2",
+                        children: [e.jsx(B, {
+                            children: e.jsx(I, {
+                                name: i,
+                                className: "uppercase max-w-64 h-[34px]",
+                                popoverClassName: "z-[10000]",
+                                itemClassName: "uppercase",
+                                value: v == null ? void 0 : v.value,
+                                onSelect: u => {
+                                    (u == null ? void 0 : u.value) === "custom" ? j(b => {
+                                        new q.Howl({
+                                            src: b.encodedBase64Sound
+                                        }).play(),
+                                        s(b),
+                                        g.setValue(i, {
+                                            value: b.name,
+                                            isCustom: !0
+                                        }, {
+                                            shouldValidate: !0
+                                        })
+                                    }
+                                    ) : (u != null && u.value && x(u.value, g.getValues().serviceNotificationSoundVolume),
+                                    g.setValue(i, u ?? void 0, {
+                                        shouldValidate: !0
+                                    }))
+                                }
+                                ,
+                                options: N,
+                                modal: !0
+                            })
+                        }), e.jsx(ce, {
+                            buttonStyle: "primary2",
+                            type: "button",
+                            disabled: !v,
+                            onClick: () => {
+                                const u = g.getValues().serviceNotificationSound;
+                                u && x((u == null ? void 0 : u.value) ?? "", g.getValues().serviceNotificationSoundVolume)
+                            }
+                            ,
+                            children: e.jsx(me, {
+                                className: "w-4 h-4"
+                            })
+                        })]
+                    }), e.jsx(ee, {
+                        children: t("body.serviceNotificationSound")
+                    }), e.jsx(A, {})]
+                })
+            }), e.jsx(D, {
+                control: g.control,
+                name: "serviceNotificationSoundVolume",
+                render: ({field: {name: i, value: v}}) => {
+                    var u;
+                    return e.jsxs(F, {
+                        children: [e.jsxs(O, {
+                            children: [t("label.volume"), ":"]
+                        }), e.jsx(B, {
+                            children: e.jsx(I, {
+                                name: i,
+                                className: "uppercase max-w-32 h-[34px]",
+                                popoverClassName: "z-[10000]",
+                                itemClassName: "uppercase",
+                                value: (u = S.find(b => parseFloat(b.value) === v)) == null ? void 0 : u.value,
+                                onSelect: b => g.setValue(i, parseFloat(b.value)),
+                                options: S,
+                                modal: !0
+                            })
+                        }), e.jsx(A, {})]
+                    })
+                }
+            })]
+        })
+    })
+}
+  , os = Object.freeze(Object.defineProperty({
+    __proto__: null,
+    SettingsFormContent: Cn
+}, Symbol.toStringTag, {
+    value: "Module"
+}));
+/**
+ * @license lucide-react v0.525.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const $n = [["path", {
+    d: "M3 7v6h6",
+    key: "1v2h90"
+}], ["path", {
+    d: "M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13",
+    key: "1r6uu6"
+}]]
+  , Pn = Ze("undo", $n)
+  , Rn = ({currentUserName: t, snapshotSettings: a, selectedOtherUser: n, availableSnapshotProfiles: s, snapshotProfile: r, selectedProfileId: o, onSelectProfile: l, onOpenProfileDialog: c, onOpenSettingsDialog: h, showClosePoeAccountSelect: f, onClosePoeAccountSelect: m, showEditButtons: N=!0, renderVariant: S="popover"}) => {
+    const g = d.useMemo( () => (s == null ? void 0 : s.filter(y => y.isCurrentUserProfile)) ?? [], [s])
+      , w = d.useMemo( () => (s == null ? void 0 : s.filter(y => !y.isCurrentUserProfile)) ?? [], [s])
+      , p = ((s == null ? void 0 : s.length) ?? 0) > 0;
+    return e.jsx(S === "popover" ? et : "div", {
+        className: "w-[150px] p-0",
+        children: e.jsxs(ua, {
+            children: [p && e.jsxs(e.Fragment, {
+                children: [e.jsxs(ut, {
+                    children: [w.length > 0 && e.jsx(ve, {
+                        heading: n == null ? void 0 : n.name,
+                        children: w.map(y => e.jsx(Qe, {
+                            profile: y,
+                            snapshotSettings: a,
+                            snapshotProfile: r,
+                            selectedProfileId: o ?? void 0,
+                            onOpenProfileDialog: c,
+                            onSelectProfile: l,
+                            showEditButton: N
+                        }, y.id))
+                    }), g.length > 0 && e.jsx(ve, {
+                        heading: S === "popover" || w.length > 0 ? t : void 0,
+                        children: g.map(y => e.jsx(Qe, {
+                            profile: y,
+                            snapshotSettings: a,
+                            snapshotProfile: r,
+                            selectedProfileId: o ?? void 0,
+                            onOpenProfileDialog: c,
+                            onSelectProfile: l,
+                            showEditButton: N
+                        }, y.id))
+                    })]
+                }), e.jsx(ma, {})]
+            }), a && e.jsxs(e.Fragment, {
+                children: [e.jsxs(J, {
+                    onSelect: () => {
+                        c(void 0)
+                    }
+                    ,
+                    children: [e.jsx("span", {
+                        className: "mr-2 h-5 w-5 inline-flex items-center justify-center",
+                        children: e.jsx("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            viewBox: "0 0 24 24",
+                            fill: "currentColor",
+                            className: "h-5 w-5",
+                            children: e.jsx("path", {
+                                d: "M12 5a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H6a1 1 0 110-2h5V6a1 1 0 011-1z"
+                            })
+                        })
+                    }), "Add Profile"]
+                }), e.jsxs(J, {
+                    onSelect: () => {
+                        h()
+                    }
+                    ,
+                    children: [e.jsx(Xt, {
+                        className: "mr-2 h-5 w-5"
+                    }), "Settings"]
+                })]
+            }), f && e.jsx(tt, {
+                children: e.jsxs(at, {
+                    children: [e.jsx(nt, {
+                        asChild: !0,
+                        children: e.jsxs(J, {
+                            onSelect: () => {
+                                m == null || m()
+                            }
+                            ,
+                            children: [e.jsx(Pn, {
+                                className: "mr-2 h-5 w-5"
+                            }), e.jsx("span", {
+                                children: "Close other account"
+                            })]
+                        })
+                    }), e.jsx(st, {
+                        children: "Return to your own net worth profiles"
+                    })]
+                })
+            })]
+        })
+    })
+}
+  , kn = d.memo(Rn);
+function Qe({profile: t, snapshotSettings: a, snapshotProfile: n, selectedProfileId: s, onOpenProfileDialog: r, onSelectProfile: o, showEditButton: l=!0}) {
+    return e.jsxs(J, {
+        onSelect: () => {
+            t.id !== s && o(t)
+        }
+        ,
+        className: "gap-1 group py-0 pl-0.5 pr-0.5",
+        children: [e.jsx(fa, {
+            className: R("h-4 w-4 flex-shrink-0", (n == null ? void 0 : n.id) === t.id ? "opacity-100" : "opacity-0")
+        }), e.jsx("span", {
+            className: "truncate py-1.5",
+            children: t.name
+        }), e.jsxs("div", {
+            className: "items-center ml-auto shrink-0 flex md:hidden md:group-hover:flex",
+            children: [t.id === (a == null ? void 0 : a.autoSnapshotProfileId) && a.autosnapshotEnabled && e.jsx("div", {
+                className: "flex items-center justify-center h-6 w-6",
+                children: e.jsx(ae, {
+                    className: "h-4 w-4 shrink-0"
+                })
+            }), t.readOnly && e.jsx("div", {
+                className: "flex items-center justify-center h-6 w-6",
+                children: e.jsx(Jt, {
+                    className: "h-4 w-4 shrink-0"
+                })
+            }), l && e.jsx(ne, {
+                onClick: c => {
+                    c.preventDefault(),
+                    c.stopPropagation(),
+                    r(t)
+                }
+                ,
+                tabIndex: 10,
+                className: "hover:border-accent-foreground border border-transparent h-7 w-7 shrink-0",
+                size: "icon",
+                variant: "ghost",
+                children: e.jsx(La, {
+                    className: "h-4 w-4 shrink-0"
+                })
+            })]
+        })]
+    }, t.id)
+}
+function En() {
+    var y, P;
+    const {socket: t, poe: a} = E(G(C => ({
+        socket: C.socket,
+        poe: C.poe
+    })))
+      , n = Re(ke)
+      , s = qe(Zt)
+      , r = qe(ea)
+      , o = ot()
+      , [l,c] = xe("user", {
+        parse: C => C || null,
+        clearOnDefault: !1
+    })
+      , [h,f] = xe("profileId", {
+        parse: C => C || null,
+        clearOnDefault: !1
+    })
+      , {data: m} = Ee(ta(t, (y = n == null ? void 0 : n.profile) == null ? void 0 : y.uuid))
+      , {availableSnapshotProfiles: N, selectedOtherUser: S} = Ea(n, a, l || void 0)
+      , {snapshotProfile: g} = Ta(n, h || void 0)
+      , {mutate: w} = rt({
+        mutationFn: aa,
+        onSuccess: (C, j) => {
+            var x;
+            (m == null ? void 0 : m.autoSnapshotProfileId) !== j.body.id && o.invalidateQueries({
+                queryKey: ["snapshot-settings", (x = n == null ? void 0 : n.profile) == null ? void 0 : x.uuid],
+                exact: !0
+            })
+        }
+    })
+      , p = d.useCallback(C => {
+        const j = (C == null ? void 0 : C.id) ?? null;
+        h !== j && (f(j),
+        C != null && C.isCurrentUserProfile && !C.readOnly && w({
+            socket: t,
+            body: {
+                id: C.id,
+                poe: a,
+                isAutoSnapshotProfile: !0
+            }
+        }))
+    }
+    , [h, f, w, t, a]);
+    return e.jsxs(e.Fragment, {
+        children: [e.jsx(ha, {}), e.jsx(pa, {
+            children: "Snapshot Profiles"
+        }), e.jsx("div", {
+            className: "px-1",
+            children: e.jsx(kn, {
+                renderVariant: "inline",
+                currentUserName: (P = n == null ? void 0 : n.profile) == null ? void 0 : P.name,
+                snapshotSettings: m ?? void 0,
+                selectedOtherUser: S,
+                availableSnapshotProfiles: N,
+                snapshotProfile: g ?? void 0,
+                selectedProfileId: h,
+                onSelectProfile: C => {
+                    p(C)
+                }
+                ,
+                onOpenProfileDialog: d.useCallback(C => {
+                    r(C),
+                    s({
+                        open: !0,
+                        type: "profile"
+                    })
+                }
+                , [s, r]),
+                onOpenSettingsDialog: d.useCallback( () => {
+                    r(void 0),
+                    s({
+                        open: !0,
+                        type: "settings"
+                    })
+                }
+                , [s, r]),
+                showClosePoeAccountSelect: !!S,
+                onClosePoeAccountSelect: () => {
+                    var C;
+                    c(((C = n == null ? void 0 : n.profile) == null ? void 0 : C.name) || null),
+                    f(null)
+                }
+                ,
+                showEditButtons: !0
+            })
+        })]
+    })
+}
+const rs = d.memo(En)
+  , Tn = ({id: t, className: a, selectedLeague: n, initialIgnSelect: s, onIgnSelect: r, hideTooltip: o, ...l}) => {
+    var j;
+    const {t: c} = ie()
+      , h = Re(ke)
+      , [f,m] = d.useState(!1)
+      , [N,S] = d.useState()
+      , g = d.useCallback(x => x == null ? void 0 : x.filter(i => {
+        var v;
+        return n === ((v = i.league) == null ? void 0 : v.toLowerCase())
+    }
+    ), [n])
+      , w = it()
+      , {data: p, isFetching: y, isLoading: P, refetch: C} = Ee({
+        ...lt(w, h, !!n),
+        select: g
+    });
+    return d.useEffect( () => {
+        let x = p == null ? void 0 : p.find(i => i.current);
+        !x && s && (x = p == null ? void 0 : p.find(i => i.name === s)),
+        x || (x = p == null ? void 0 : p[0]),
+        S(x),
+        r((x == null ? void 0 : x.name) || null)
+    }
+    , [p]),
+    e.jsxs(na, {
+        open: f,
+        onOpenChange: m,
+        modal: !0,
+        children: [e.jsx(tt, {
+            children: e.jsxs(at, {
+                children: [e.jsx(sa, {
+                    asChild: !0,
+                    children: e.jsx(nt, {
+                        asChild: !0,
+                        children: e.jsx(va, {
+                            id: t,
+                            className: a,
+                            comboboxOpen: f,
+                            disabled: !((j = h == null ? void 0 : h.profile) != null && j.uuid) || P,
+                            ...l,
+                            children: N ? e.jsx("div", {
+                                className: "truncate",
+                                children: `${N.name}`
+                            }) : e.jsx(e.Fragment, {
+                                children: P ? e.jsxs("div", {
+                                    className: "flex flex-row justify-between items-center gap-2",
+                                    children: [e.jsx(e.Fragment, {
+                                        children: c("label.selectPh")
+                                    }), e.jsx(ae, {
+                                        className: "w-4 h-w mr-2 animate-spin"
+                                    })]
+                                }) : e.jsx(e.Fragment, {
+                                    children: c("label.selectPh")
+                                })
+                            })
+                        })
+                    })
+                }), !o && e.jsx(st, {
+                    children: e.jsx(ct, {
+                        children: c("label.characterSelectTT")
+                    })
+                })]
+            })
+        }), e.jsx(et, {
+            sideOffset: 5,
+            className: "p-0 max-h-[var(--radix-popover-content-available-height)] w-[var(--radix-popover-trigger-width)] min-w-[150px] max-w-[var(--radix-popover-content-available-width)] overflow-hidden",
+            children: e.jsxs(xa, {
+                filter: (x, i) => p != null && p.some(v => {
+                    var $;
+                    if (v.id !== x)
+                        return !1;
+                    const u = i.toLowerCase()
+                      , b = !Number.isNaN(parseFloat(i));
+                    return v.name.toLowerCase().includes(u) || v.class.toLowerCase().includes(u) || (($ = v.league) == null ? void 0 : $.toLowerCase().includes(u)) || b && v.level === parseFloat(i)
+                }
+                ) ? 1 : 0,
+                children: [e.jsx(ga, {
+                    placeholder: c("label.searchPh"),
+                    endIcon: e.jsx(ne, {
+                        variant: "ghost",
+                        size: "inputEndIcon",
+                        className: "w-8 h-8 rounded-none",
+                        onClick: () => {
+                            C()
+                        }
+                        ,
+                        disabled: y,
+                        children: e.jsx(ae, {
+                            className: R(y && "animate-spin", "w-4 h-4 shrink-0")
+                        })
+                    })
+                }), e.jsx(ut, {
+                    children: e.jsx(ve, {
+                        children: p == null ? void 0 : p.map(x => e.jsx(Na, {
+                            value: x.id,
+                            onSelect: i => {
+                                const v = p.find(u => u.id === i);
+                                S(v),
+                                r((v == null ? void 0 : v.name) || null),
+                                m(!1)
+                            }
+                            ,
+                            children: e.jsxs("div", {
+                                className: "flex flex-col gap-1 items-start",
+                                children: [e.jsx("div", {
+                                    children: x.name
+                                }), e.jsx("div", {
+                                    className: "flex flex-row gap-2 uppercase justify-between",
+                                    children: e.jsx("div", {
+                                        children: c("body.characterInfo", {
+                                            level: x.level,
+                                            class: x.class
+                                        })
+                                    })
+                                })]
+                            })
+                        }, x.id))
+                    })
+                }), e.jsx(ja, {
+                    children: c("label.noResults")
+                })]
+            })
+        })]
+    })
+}
+  , Mn = d.memo(Tn)
+  , Ln = d.memo( ({open: t, setOpen: a}) => {
+    const n = Re(ke)
+      , s = E(p => p.poe)
+      , r = E(p => s === "poe1" ? p.leaguePoe1 : p.leaguePoe2)
+      , o = E(G(p => p.confirmedIgnsPoe1[r]))
+      , l = E(Aa)
+      , c = E(p => p.setMainIgn)
+      , h = E(p => p.setMainIgnPending)
+      , f = d.useCallback(p => {
+        var P, C;
+        const y = p == null ? void 0 : p.filter(j => {
+            var x;
+            return r === ((x = j.league) == null ? void 0 : x.toLowerCase())
+        }
+        );
+        return ((P = y == null ? void 0 : y.find(j => j.current)) == null ? void 0 : P.name) || ((C = y == null ? void 0 : y[0]) == null ? void 0 : C.name)
+    }
+    , [r])
+      , m = !!n && s === "poe1" && !!r
+      , N = it()
+      , {data: S, isPending: g} = Ee({
+        ...lt(N, n, m),
+        select: f
+    })
+      , w = m && g;
+    return d.useEffect( () => {
+        h(w)
+    }
+    , [w, h]),
+    d.useEffect( () => {
+        !n || !(s === "poe1" && S && S !== l && S !== o || s === "poe2" && !l) || a(!0)
+    }
+    , [S, n, l, s, a]),
+    e.jsx(Va, {
+        open: t,
+        onOpenChange: a,
+        children: e.jsx(_a, {
+            children: e.jsx(Bt, {
+                poe: s,
+                currentUser: n,
+                mainIgn: l,
+                queriedIgn: S,
+                setMainIgn: c,
+                closeDialog: () => a(!1)
+            })
+        })
+    })
+}
+);
+Ln.displayName = "SettingsDialog";
+const Vn = H({
+    ign: Z().min(1, "Please enter you main character name")
+})
+  , Bt = d.memo( ({currentUser: t, poe: a, mainIgn: n, queriedIgn: s, setMainIgn: r, closeDialog: o}) => {
+    const {t: l} = ie()
+      , c = E(w => w.setConfirmedIgn)
+      , h = E(w => a === "poe1" ? w.leaguePoe1 : w.leaguePoe2)
+      , f = mt({
+        resolver: ft(Vn),
+        reValidateMode: "onChange",
+        mode: "all",
+        delayError: 500,
+        defaultValues: {
+            ign: n
+        }
+    })
+      , m = ot()
+      , N = rt({
+        mutationFn: oa,
+        onSuccess: (w, {poe: p, ign: y, league: P}) => {
+            var C, j;
+            m.invalidateQueries({
+                queryKey: ["service-listings", (C = t == null ? void 0 : t.profile) == null ? void 0 : C.uuid, p]
+            }),
+            m.invalidateQueries({
+                queryKey: ["my-service-listings", (j = t == null ? void 0 : t.profile) == null ? void 0 : j.uuid, p]
+            }),
+            m.invalidateQueries({
+                queryKey: ["listings"]
+            }),
+            m.invalidateQueries({
+                queryKey: ["my-listings"]
+            }),
+            r(y),
+            p === "poe1" && s && c(s),
+            o()
+        }
+    });
+    function S(w) {
+        N.mutate({
+            poe: a,
+            league: h,
+            ign: w.ign
+        })
+    }
+    const g = d.useCallback(w => {
+        f.setValue("ign", w)
+    }
+    , [f]);
+    return e.jsx(ht, {
+        ...f,
+        children: e.jsxs("form", {
+            onSubmit: f.handleSubmit(S),
+            children: [e.jsx(Ia, {
+                children: "Account Settings"
+            }), e.jsx(Oa, {
+                className: "p-2 sm:p-6",
+                children: e.jsxs("div", {
+                    className: "grid grid-cols-1 gap-2",
+                    children: [s && n && s !== n && e.jsxs(ct, {
+                        className: "text-yellow-400",
+                        children: ["A character change was detected. Please confirm:", e.jsx("br", {}), e.jsx("span", {
+                            className: "underline",
+                            children: `'${n}'`
+                        }), " -> ", e.jsx("span", {
+                            className: "underline",
+                            children: `'${s}'`
+                        })]
+                    }), e.jsx(D, {
+                        control: f.control,
+                        name: "ign",
+                        render: ({field: {value: w, onChange: p, onBlur: y, ...P}}) => e.jsxs(F, {
+                            children: [e.jsx(O, {
+                                required: !0,
+                                children: `${a === "poe1" ? "POE1" : "POE2"} Character: `
+                            }), a === "poe1" && e.jsx(Mn, {
+                                id: "character",
+                                name: P.name,
+                                selectedLeague: h,
+                                hideTooltip: !0,
+                                initialIgnSelect: n,
+                                onIgnSelect: g
+                            }), a === "poe2" && e.jsx(wa, {
+                                id: "character",
+                                value: w,
+                                placeholder: "Character Name (IGN) ...",
+                                onChange: p,
+                                onBlur: y,
+                                ...P
+                            }), e.jsxs(ee, {
+                                children: ["The character name you want to use for trading and services. This will be used as your main IGN.", e.jsx("br", {}), " ", e.jsx("span", {
+                                    className: "text-yellow-400",
+                                    children: "Saving will update all your bulk-trade and service listings"
+                                })]
+                            }), e.jsx(A, {})]
+                        })
+                    }), e.jsxs("span", {
+                        className: "text-[0.8rem] text-muted-foreground",
+                        children: ["If you think someone scammed you, then please report the players account in discord", " ", e.jsx(re, {
+                            "aria-label": "discord",
+                            className: "underline",
+                            target: "_blank",
+                            href: "https://discord.com/channels/530668348682403841/706581590850928770",
+                            children: "here"
+                        })]
+                    })]
+                })
+            }), e.jsxs(Da, {
+                children: [e.jsx(Fa, {
+                    asChild: !0,
+                    children: e.jsx(ne, {
+                        type: "button",
+                        variant: "secondary",
+                        onClick: () => {
+                            a === "poe1" && s && n && c(s)
+                        }
+                        ,
+                        children: l("action.close")
+                    })
+                }), e.jsxs(ne, {
+                    className: "flex flex-row gap-2",
+                    children: [e.jsx("span", {
+                        className: "truncate",
+                        children: "Save"
+                    }), e.jsx(ae, {
+                        className: R(N.isPending && "animate-spin", "w-4 h-w shrink-0")
+                    })]
+                })]
+            })]
+        })
+    })
+}
+);
+Bt.displayName = "SettingsDialogContent";
+/**
+ * @license lucide-react v0.525.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const _n = [["circle", {
+    cx: "12",
+    cy: "8",
+    r: "5",
+    key: "1hypcn"
+}], ["path", {
+    d: "M20 21a8 8 0 0 0-16 0",
+    key: "rfgkzh"
+}]]
+  , is = Ze("user-round", _n)
+  , In = d.createContext(null)
+  , he = {
+    didCatch: !1,
+    error: null
+};
+let ls = class extends d.Component {
+    constructor(a) {
+        super(a),
+        this.resetErrorBoundary = this.resetErrorBoundary.bind(this),
+        this.state = he
+    }
+    static getDerivedStateFromError(a) {
+        return {
+            didCatch: !0,
+            error: a
+        }
+    }
+    resetErrorBoundary() {
+        const {error: a} = this.state;
+        if (a !== null) {
+            for (var n, s, r = arguments.length, o = new Array(r), l = 0; l < r; l++)
+                o[l] = arguments[l];
+            (n = (s = this.props).onReset) === null || n === void 0 || n.call(s, {
+                args: o,
+                reason: "imperative-api"
+            }),
+            this.setState(he)
+        }
+    }
+    componentDidCatch(a, n) {
+        var s, r;
+        (s = (r = this.props).onError) === null || s === void 0 || s.call(r, a, n)
+    }
+    componentDidUpdate(a, n) {
+        const {didCatch: s} = this.state
+          , {resetKeys: r} = this.props;
+        if (s && n.error !== null && Dn(a.resetKeys, r)) {
+            var o, l;
+            (o = (l = this.props).onReset) === null || o === void 0 || o.call(l, {
+                next: r,
+                prev: a.resetKeys,
+                reason: "keys"
+            }),
+            this.setState(he)
+        }
+    }
+    render() {
+        const {children: a, fallbackRender: n, FallbackComponent: s, fallback: r} = this.props
+          , {didCatch: o, error: l} = this.state;
+        let c = a;
+        if (o) {
+            const h = {
+                error: l,
+                resetErrorBoundary: this.resetErrorBoundary
+            };
+            if (typeof n == "function")
+                c = n(h);
+            else if (s)
+                c = d.createElement(s, h);
+            else if (r !== void 0)
+                c = r;
+            else
+                throw l
+        }
+        return d.createElement(In.Provider, {
+            value: {
+                didCatch: o,
+                error: l,
+                resetErrorBoundary: this.resetErrorBoundary
+            }
+        }, c)
+    }
+}
+;
+function Dn() {
+    let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : []
+      , a = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : [];
+    return t.length !== a.length || t.some( (n, s) => !Object.is(n, a[s]))
+}
+var Ce = "__nuqs__";
+function Fn(t) {
+    if (t instanceof URL)
+        return t.searchParams;
+    if (t.startsWith("?"))
+        return new URLSearchParams(t);
+    try {
+        return new URL(t,location.origin).searchParams
+    } catch {
+        return new URLSearchParams(t)
+    }
+}
+function On(t, a) {
+    var l, c, h;
+    if (typeof history > "u")
+        return;
+    if ((l = history.nuqs) != null && l.version && history.nuqs.version !== "0.0.0-inject-version-here") {
+        console.error(Sa(409), history.nuqs.version, "0.0.0-inject-version-here", a);
+        return
+    }
+    if ((h = (c = history.nuqs) == null ? void 0 : c.adapters) != null && h.includes(a))
+        return;
+    let n = typeof location == "object" ? location.search : "";
+    t.on("update", f => {
+        const m = f.toString();
+        n = m.length ? "?" + m : ""
+    }
+    ),
+    Ca("[nuqs %s] Patching history (%s adapter)", "0.0.0-inject-version-here", a);
+    function s(f) {
+        try {
+            if (new URL(f,location.origin).search === n)
+                return
+        } catch {}
+        try {
+            t.emit("update", Fn(f))
+        } catch (m) {
+            console.error(m)
+        }
+    }
+    const r = history.pushState
+      , o = history.replaceState;
+    history.pushState = function(f, m, N) {
+        r.call(history, f, "", N),
+        N && m !== Ce && s(N)
+    }
+    ,
+    history.replaceState = function(f, m, N) {
+        o.call(history, f, "", N),
+        N && m !== Ce && s(N)
+    }
+    ,
+    history.nuqs = history.nuqs ?? {
+        version: "0.0.0-inject-version-here",
+        adapters: []
+    },
+    history.nuqs.adapters.push(a)
+}
+function An({adapter: t, useNavigate: a, useSearchParams: n}) {
+    const s = Pa();
+    function r() {
+        const l = a()
+          , c = o()
+          , h = d.useCallback( (f, m) => {
+            var S;
+            d.startTransition( () => {
+                s.emit("update", f)
+            }
+            );
+            const N = new URL(location.href);
+            N.search = Ra(f),
+            (m.history === "push" ? history.pushState : history.replaceState).call(history, history.state, Ce, N),
+            m.shallow === !1 && l({
+                hash: N.hash,
+                search: N.search
+            }, {
+                replace: !0,
+                preventScrollReset: !0,
+                state: (S = history.state) == null ? void 0 : S.usr
+            }),
+            m.scroll && window.scrollTo(0, 0)
+        }
+        , [l]);
+        return {
+            searchParams: c,
+            updateUrl: h
+        }
+    }
+    function o() {
+        const [l] = n(typeof location > "u" ? new URLSearchParams : new URLSearchParams(location.search))
+          , [c,h] = d.useState( () => typeof location > "u" ? l : new URLSearchParams(location.search));
+        return d.useEffect( () => {
+            function f() {
+                h(new URLSearchParams(location.search))
+            }
+            function m(N) {
+                h(N)
+            }
+            return s.on("update", m),
+            window.addEventListener("popstate", f),
+            () => {
+                s.off("update", m),
+                window.removeEventListener("popstate", f)
+            }
+        }
+        , []),
+        c
+    }
+    return On(s, t),
+    {
+        NuqsAdapter: $a(r),
+        useOptimisticSearchParams: o
+    }
+}
+var {NuqsAdapter: ds} = An({
+    adapter: "react-router-v6",
+    useNavigate: ya,
+    useSearchParams: Ua
+});
+export {ns as H, Cn as V, Ln as a, rs as b, ls as c, ds as d, gn as f, pn as i, xn as l, vn as n, Nn as p, is as r, os as s, jn as u, ss as w};
