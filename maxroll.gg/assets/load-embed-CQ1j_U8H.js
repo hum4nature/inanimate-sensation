@@ -1,0 +1,1 @@
+import{i as c,c as i,b as f}from"./util-DPeyOfYu.js";function n(o,e,s,a,d){const r=d!==void 0?a[d]:a[o];if(!r)return;const{scripts:l,styles:u}=r;l.forEach(t=>c(t.startsWith("http")?t:i(s,t+"?ver="+e),!0,!1,r.loadAsModule)),u.forEach(t=>f(t.startsWith("http")?t:i(s,t+"?ver="+e)))}export{n as l};

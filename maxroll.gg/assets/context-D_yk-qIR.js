@@ -1,0 +1,1 @@
+import{r as e}from"./jsx-runtime-BmCkTyBI.js";const o=e.createContext(null),n=o.Provider,p=()=>{const t=e.useContext(o);if(!t)throw new Error("useAppContext must be used within a AppContextProvider");return t};export{n as A,p as u};

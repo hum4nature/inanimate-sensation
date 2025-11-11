@@ -1,0 +1,1 @@
+import{j as t}from"./jsx-runtime-BmCkTyBI.js";import{C as i}from"./client-only-cWYvs-hb.js";import{a as s}from"./util-DPeyOfYu.js";function p({clientOnly:m,altFallback:o=!0,src:e,alt:r,...n}){const l=o&&e?s(e):"",a=t.jsx("img",{src:e,alt:r||l,...n});return m?t.jsx(i,{fallback:t.jsx(t.Fragment,{}),children:()=>a}):a}export{p as I};

@@ -1,0 +1,1 @@
+import{j as o}from"./jsx-runtime-BmCkTyBI.js";import{L as i}from"./components-yGT3xdTE.js";const x=n=>{const{regularLinks:e,to:r,children:s,...t}=n;return e?o.jsx("a",{href:r,...t,children:s}):o.jsx(i,{to:r,...t,children:s})};export{x as G};

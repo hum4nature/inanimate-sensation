@@ -1,0 +1,1 @@
+import{r as t,j as r}from"./jsx-runtime-BmCkTyBI.js";function u(){return()=>{}}function a(){return t.useSyncExternalStore(u,()=>!0,()=>!1)}function l({children:n,fallback:e=null}){return a()?r.jsx(r.Fragment,{children:n()}):r.jsx(r.Fragment,{children:e})}export{l as d};

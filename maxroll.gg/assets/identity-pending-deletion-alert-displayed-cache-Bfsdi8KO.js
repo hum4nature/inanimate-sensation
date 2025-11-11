@@ -1,0 +1,1 @@
+import{g as n,s as a}from"./local-storage-utils-D-tYHVlb.js";const t="identity_pending_deletion_alert_displayed",o=1e3*60*60*24,s={get:e=>{const i=n(t);return!!i&&e===i.identityId},set:e=>{a(t,{identityId:e},o)},clear:()=>{localStorage.removeItem(t)}};export{s as i};

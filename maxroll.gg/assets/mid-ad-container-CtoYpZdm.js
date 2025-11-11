@@ -1,0 +1,1 @@
+import{j as r}from"./jsx-runtime-BmCkTyBI.js";import{s as e,a as s,r as l}from"./index-0f3ee958-DZWNGZaJ.js";import"./index-B7uSRlxY.js";const m="_parent_9eak6_1",p={parent:m},c=a=>{const[o]=e(t=>({loaded:t.viewport.loaded,md:t.viewport.md,"3xl":t.viewport["3xl"]}));return o.loaded&&!o["3xl"]&&o.md?r.jsx(s,{logicalPlacement:l.TOP,className:p.parent,...a}):null};export{c};

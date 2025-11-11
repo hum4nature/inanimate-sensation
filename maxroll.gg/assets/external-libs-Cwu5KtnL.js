@@ -1,0 +1,1 @@
+import{r as e,j as o}from"./jsx-runtime-BmCkTyBI.js";const t=e.createContext(void 0),i=({children:r,libs:n})=>o.jsx(t.Provider,{value:n,children:r});function u(){const r=e.useContext(t);if((r==null?void 0:r.orySdk)===void 0)throw new Error("useOry must be used within an ExternalLibsProvider with an orySdk");return r.orySdk}export{i as E,u};

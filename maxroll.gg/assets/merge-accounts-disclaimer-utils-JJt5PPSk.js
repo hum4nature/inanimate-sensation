@@ -1,0 +1,1 @@
+const t="merge_accounts_disclaimer_dismissed",s={get:()=>{if(typeof window>"u")return!0;const e=localStorage.getItem(t);return e?e==="true":!1},set:e=>{localStorage.setItem(t,e.toString())}},o=()=>!s.get(),r=()=>{s.set(!0)};export{r as n,o as s};

@@ -1,0 +1,1 @@
+import{j as s}from"./jsx-runtime-BmCkTyBI.js";import{c as a}from"./index-DTex4z8k.js";function t({style:r="full",className:l="",parentClassName:e=""}){return s.jsx("div",{className:a(e,"py-5"),children:s.jsx("div",{className:a("bg-dark-5 h-[1px]",r==="full"?"w-full":"mx-auto w-16",l)})})}export{t as L};

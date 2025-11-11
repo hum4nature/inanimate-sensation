@@ -1,0 +1,1 @@
+function a(t,e,n=24*60*60*1e3){const i={value:e,expiry:new Date().getTime()+n};try{localStorage.setItem(t,JSON.stringify(i))}catch{}}function c(t){const e=localStorage.getItem(t);if(!e)return;const n=JSON.parse(e),r=new Date;try{if(r.getTime()>n.expiry){localStorage.removeItem(t);return}}catch{}return n.value}export{c as g,a as s};
