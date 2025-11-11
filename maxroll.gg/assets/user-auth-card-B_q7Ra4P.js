@@ -1,0 +1,1 @@
+import{r as t,j as r}from"./jsx-runtime-BmCkTyBI.js";import{T as o,I as a,U as m}from"./index-Bo3yTGNn.js";import{g as i}from"./ory-utils-CWGoKueJ.js";const x=({...e})=>{const s=t.useMemo(()=>i(),[]);return r.jsx(o,{themeOverrides:s,children:r.jsx(a,{defaultLocale:"en",children:r.jsx(m,{...e})})})};export{x as U};

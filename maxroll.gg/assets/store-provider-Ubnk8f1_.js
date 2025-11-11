@@ -1,0 +1,1 @@
+import{r as t,j as n}from"./jsx-runtime-BmCkTyBI.js";import{_ as c}from"./store-DLU3xr0A.js";const s=t.createContext(null),p=({children:o,poe:e})=>{const r=t.useRef();return(!r.current||r.current.getState().poe!==e)&&(r.current=c(e)),n.jsx(s.Provider,{value:r.current,children:o})};export{p as a,s as c};

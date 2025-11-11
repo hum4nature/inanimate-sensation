@@ -1,0 +1,1 @@
+import{i as l,m as a}from"./useUiStateStore-BTW2eq2x.js";import{r as g}from"./jsx-runtime-BmCkTyBI.js";const u=(t,e,r,s)=>{const n=g.useMemo(()=>l(t),[t]),o=a(c=>t==="poe1"?c.leaguePoe1:c.leaguePoe2);g.useEffect(()=>{n.includes(e)||(console.warn("Attention! Stores going to be resetted!"),s()),o!==e&&(console.log("Syncing leagues",o,e),r(o))},[o,e,s,r,n])};export{u as y};
